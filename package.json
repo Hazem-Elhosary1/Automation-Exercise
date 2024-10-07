@@ -1,0 +1,21 @@
+{
+    "name": "demoblaze",
+    "version": "1.0.0",
+    "description": "Test Ecommerce Website using Cypress",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "Hazem",
+    "license": "ISC",
+    "dependencies": {
+        "@cypress/browserify-preprocessor": "latest",
+        "cypress": "^13.15.0"
+    },
+    "devDependencies": {
+        "@badeball/cypress-cucumber-preprocessor": "^21.0.2",
+        "@bahmutov/cypress-esbuild-preprocessor": "^2.2.3",
+        "esbuild": "^0.24.0",
+        "raw-loader": "^4.0.2"
+    }
+}

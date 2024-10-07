@@ -1,0 +1,25 @@
+{
+
+    "Email": "HazemElhosary3@gamil.com",
+    "Password": "PassW0rd123#",
+    "Title": "Mr.",
+    "Birthday": {
+        "Day": "13",
+        "Month": "June",
+        "Year": "1999"
+    },
+    "Name": {
+        "First_Name": "Hazem",
+        "Last_Name": "Elhosary",
+        "FName": "Hazem Elhosary"
+    },
+
+
+    "Company": "2P Perfect",
+    "Address": "6th of October - Giza city -Egypt",
+    "Country": "United States",
+    "State": "Egypt",
+    "City": "Cairo",
+    "Zipcode": "14113",
+    "Mobile_Number": "01092341868"
+}

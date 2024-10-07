@@ -1,0 +1,32 @@
+import { Given, When, Then } from '@badeball/cypress-cucumber-preprocessor';
+
+const loginPageUrl = '/login';
+const emailInputSelector = "[data-qa='login-email']";
+const passwordInputSelector = 'input[type="password"]';
+const loginButtonSelector = '[data-qa="login-button"]';
+const successMessageSelector = 'b';
+
+
+Given('the user is on the login page', () => {
+    cy.visit(loginPageUrl);
+});
+
+When('the user enters their email and password', () => {
+    cy.fixture('Data').then((user) => {
+        cy.get(emailInputSelector).type(user.Email);
+        cy.get(passwordInputSelector).type(user.Password);
+        cy.get(loginButtonSelector).click();
+    });
+});
+
+Then('the user should be successfully logged in', () => {
+    cy.fixture('Data').then((user) => {
+        const fullName = user.Name.FName;
+
+        console.log(user);
+        cy.get(successMessageSelector)
+            .should('be.visible')
+            .and('contain', fullName);
+    });
+    cy.screenshot()
+});
