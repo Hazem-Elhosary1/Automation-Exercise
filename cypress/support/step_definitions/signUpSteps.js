@@ -1,4 +1,4 @@
-import { signUp, SuData } from '../../integration/sign_up/Sign_Up';
+import { signUp, SuData } from '../../integration/sign_up/New_signUp/Sign_Up';
 import { Given, When, Then } from '@badeball/cypress-cucumber-preprocessor';
 
 // Code to take a screenshot if test case feild
