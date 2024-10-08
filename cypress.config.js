@@ -19,10 +19,10 @@ async function setupNodeEvents(on, config) {
 }
 
 module.exports = defineConfig({
-  projectId: 'y8hje9',
+    projectId: 'y8hje9',
     e2e: {
         setupNodeEvents,
-        specPattern: ["cypress/integration/**/*.feature", "cypress/integration/**/{*.spec,*.cy,*.js}", "cypress/integration/**/*.Feature"],
+        specPattern: ["cypress/integration/**/*.feature", "cypress/integration/**/{*.spec,*.cy}", "cypress/integration/**/*.Feature"],
         baseUrl: "https://www.automationexercise.com",
         screenshotsFolder: "./cypress/screenshots",
         screenshotOnRunFailure: true,
