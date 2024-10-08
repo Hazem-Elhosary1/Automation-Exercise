@@ -37,14 +37,19 @@ When("the user enters valid registration details", () => {
 
 Then("the user should be successfully registered", () => {
     const successMessageSelector = 'b';
+    const deleteAccountBtn = '/delete_account'
 
-    cy.get(successMessageSelector).then(($el) => {
-        if ($el.length === 0) {
-            cy.screenshot(`Failure - Success Message Not Found - ${new Date().toISOString()}`, { capture: 'fullPage' });
-            throw new Error('Success message not found.');
-        } else {
-            cy.wrap($el).should('be.visible').and('contain', 'Account Created!');
-        }
+    cy.fixture('Data').then((user) => {
+        const fullName = user.Name.FName;
+
+        console.log(user);
+        cy.get(successMessageSelector)
+            .should('be.visible')
+            .and('contain', fullName);
+        cy.screenshot();
+        cy.visit(deleteAccountBtn)
+    cy.get('b').should('be.visible').and('contain', 'Account Deleted!');
+    cy.get('[data-qa="continue-button"]').click();
+        
     });
 });
-//});

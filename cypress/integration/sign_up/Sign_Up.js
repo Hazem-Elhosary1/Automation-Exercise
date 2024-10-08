@@ -26,7 +26,9 @@ export function signUp(Name, Email, Password, Title, Birthday, Company, Address,
     const city = "input#city.form-control";
     const zipCode = "input#zipcode.form-control";
     const mobile_number = "input#mobile_number.form-control";
-    const SubmitCreateBtn = "[data-qa='create-account']"
+    const SubmitCreateBtn = "[data-qa='create-account']";
+    //const continueBtn = "data-qa='continue-button'"
+    const deleteAccountBtn = '/delete_account'
 
     cy.visit(Url);
     cy.get(NameInput).type(Name.FName);
@@ -53,4 +55,7 @@ export function signUp(Name, Email, Password, Title, Birthday, Company, Address,
     cy.screenshot();
     cy.get(SubmitCreateBtn).click()
     cy.screenshot();
+    cy.get('b').should('be.visible').and('contain', 'Account Created!');
+    cy.get('[data-qa="continue-button"]').click();
+    
 }

@@ -5,6 +5,7 @@ const emailInputSelector = "[data-qa='login-email']";
 const passwordInputSelector = 'input[type="password"]';
 const loginButtonSelector = '[data-qa="login-button"]';
 const successMessageSelector = 'b';
+const deleteAccountBtn = '/delete_account'
 
 
 Given('the user is on the login page', () => {
@@ -27,6 +28,20 @@ Then('the user should be successfully logged in', () => {
         cy.get(successMessageSelector)
             .should('be.visible')
             .and('contain', fullName);
+        cy.screenshot();
+        cy.visit(deleteAccountBtn)
+        const deleteMessageSelector = 'b';
+
+        cy.get(deleteMessageSelector).then(($el) => {
+            if ($el.length === 0) {
+                cy.screenshot(`Failure - Success Message Not Found - ${new Date().toISOString()}`, { capture: 'fullPage' });
+                throw new Error('Success message not found.');
+            } else {
+                cy.wrap($el).should('be.visible').and('contain', 'Account Deleted!');
+            }
+        });
+
+
     });
-    cy.screenshot()
+
 });
