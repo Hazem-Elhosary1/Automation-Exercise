@@ -1,4 +1,5 @@
 Feature: User Registration
+#Test Case 5 --> Register with an existing email
 
     Scenario: Register with an existing email
         Given the user navigates to the sign-up page
