@@ -1,5 +1,7 @@
 Feature: Contact Us Form
 
+#Test Case 6 ----> Contact Us 
+
     Scenario: User submits the contact us form
         Given the user is on the homepage
         When the user navigates to the Contact Us page
