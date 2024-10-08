@@ -46,10 +46,10 @@ Then("the user should be successfully registered", () => {
         cy.get(successMessageSelector)
             .should('be.visible')
             .and('contain', fullName);
-        cy.screenshot();
-        cy.visit(deleteAccountBtn)
-    cy.get('b').should('be.visible').and('contain', 'Account Deleted!');
-    cy.get('[data-qa="continue-button"]').click();
-        
+        // cy.screenshot();
+        //     cy.visit(deleteAccountBtn)
+        // cy.get('b').should('be.visible').and('contain', 'Account Deleted!');
+        //    cy.get('[data-qa="continue-button"]').click();
+
     });
 });

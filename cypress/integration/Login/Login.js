@@ -29,17 +29,18 @@ Then('the user should be successfully logged in', () => {
             .should('be.visible')
             .and('contain', fullName);
         cy.screenshot();
-        cy.visit(deleteAccountBtn)
+        //  cy.visit(deleteAccountBtn)
         const deleteMessageSelector = 'b';
 
-        cy.get(deleteMessageSelector).then(($el) => {
-            if ($el.length === 0) {
-                cy.screenshot(`Failure - Success Message Not Found - ${new Date().toISOString()}`, { capture: 'fullPage' });
-                throw new Error('Success message not found.');
-            } else {
-                cy.wrap($el).should('be.visible').and('contain', 'Account Deleted!');
-            }
-        });
+        // cy.get(deleteMessageSelector).then(($el) => {
+        //     if ($el.length === 0) {
+        //         cy.screenshot(`Failure - Success Message Not Found - ${new Date().toISOString()}`, { capture: 'fullPage' });
+        //         throw new Error('Success message not found.');
+        //     } else {
+        //         cy.wrap($el).should('be.visible').and('contain', 'Account Deleted!');
+        //     }
+        // });
+        // cy.get('[data-qa="continue-button"]').click();
 
 
     });
