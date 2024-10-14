@@ -6,8 +6,8 @@ const allProductsPageUrl = `${ homepageUrl }products`;
 const searchInputSelector = '#search_product';
 const searchButtonSelector = '#submit_search';
 const searchedProductsTitleSelector = 'h2.title.text-center';
-const productListSelector = '.features_items';
-const productName = ' .product-image-wrapper > .single-products > .productinfo > p';
+//const productListSelector = '.features_items';
+//const productName = ' .product-image-wrapper > .single-products > .productinfo > p';
 
 Given('the user is on the homepage', () => {
     cy.visit(homepageUrl);
