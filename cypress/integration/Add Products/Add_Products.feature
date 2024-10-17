@@ -1,5 +1,7 @@
 Feature: Add products to cart
 
+#Test Case (12) ----> Add Products in Cart
+
     Scenario: Add two products to the cart and verify their details
         Given the user is on the homepage
         Then the homepage is visible successfully

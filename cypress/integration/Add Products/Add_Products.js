@@ -26,21 +26,22 @@ Then('the user should be navigated to the ALL PRODUCTS page', () => {
 
 When('the user adds the first product to the cart', () => {
     cy.get('.product-image-wrapper').first().trigger('mouseover');
-    cy.get('.add-to-cart').first().scrollIntoView().click({ force: true });
-    cy.get('.btn-success').click();
+    cy.get('.add-to-cart').first().scrollIntoView().should('be.visible').click({ force: true });
+    cy.get('.btn-success').contains('Continue Shopping').click();
 });
 
 When('the user adds the second product to the cart', () => {
-    cy.get('.product-image-wrapper').eq(1).trigger('mouseover');
-    cy.get('.add-to-cart').eq(1).scrollIntoView().click({ force: true });
+    cy.get(':nth-child(4) > .product-image-wrapper > .single-products > .productinfo > .btn')
+        .scrollIntoView()
+        .should('be.visible')
+        .click({ force: true });
 });
-
 When('the user views the cart', () => {
     cy.get(viewCartButton).click();
 });
 
 Then('both products are added to the Cart', () => {
-    cy.get(cartProductSelector).should('have.length', 1);
+    cy.get(cartProductSelector).should('have.length', 2);
 });
 
 Then('the user verifies the products prices, quantity, and total price', () => {
