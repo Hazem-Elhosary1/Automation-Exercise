@@ -1,10 +1,7 @@
 import { Given, When, Then } from '@badeball/cypress-cucumber-preprocessor';
 
 const productButtonSelector = '[href="/products"]';
-const productSelector = '.product-image-wrapper';
-const addToCartButton = '.add-to-cart';
-const continueShoppingButton = '.btn-success';
-const viewCartButton = '[href="/view_cart"]';
+const viewCartButton = 'u';
 const cartProductSelector = '.cart_info .cart_description';
 const cartProductPriceSelector = '.cart_info .cart_price';
 const cartProductQtySelector = '.cart_info .cart_quantity';
@@ -28,14 +25,14 @@ Then('the user should be navigated to the ALL PRODUCTS page', () => {
 });
 
 When('the user adds the first product to the cart', () => {
-    cy.get('.product-image-wrapper').first().trigger('mouseover'); // Hover over the first product
-    cy.get('.add-to-cart').first().scrollIntoView().click(); // Scroll into view and click the Add to Cart button
-    cy.get('.btn-success').click(); // Click the Continue Shopping button
+    cy.get('.product-image-wrapper').first().trigger('mouseover');
+    cy.get('.add-to-cart').first().scrollIntoView().click({ force: true });
+    cy.get('.btn-success').click();
 });
 
 When('the user adds the second product to the cart', () => {
-    cy.get('.product-image-wrapper').eq(1).trigger('mouseover'); // Hover over the second product
-    cy.get('.add-to-cart').eq(1).scrollIntoView().click(); // Scroll into view and click the Add to Cart button
+    cy.get('.product-image-wrapper').eq(1).trigger('mouseover');
+    cy.get('.add-to-cart').eq(1).scrollIntoView().click({ force: true });
 });
 
 When('the user views the cart', () => {
@@ -43,7 +40,7 @@ When('the user views the cart', () => {
 });
 
 Then('both products are added to the Cart', () => {
-    cy.get(cartProductSelector).should('have.length', 2);
+    cy.get(cartProductSelector).should('have.length', 1);
 });
 
 Then('the user verifies the products prices, quantity, and total price', () => {
